@@ -346,6 +346,50 @@ download_url: https://raw.githubusercontent.com/byrneg7/MWL_api/master/Gemfile.l
     }
 
     #[test]
+    fn test_explicit_type_blocks_conflicting_download_url_inference() {
+        let test_content = r#"
+type: pypi
+name: docker
+version: 1.0.0
+download_url: https://raw.githubusercontent.com/docker/docker/ff2de8dace1ba1c1f5e8542790ef5cd564375934/image/spec/v1.1.md
+"#;
+        use std::io::Write;
+        let temp_dir = tempfile::tempdir().unwrap();
+        let file_path = temp_dir.path().join("explicit-type.ABOUT");
+        let mut file = std::fs::File::create(&file_path).unwrap();
+        file.write_all(test_content.as_bytes()).unwrap();
+
+        let result = AboutFileParser::extract_first_package(&file_path);
+
+        assert_eq!(result.package_type, Some(PackageType::Pypi));
+        assert_eq!(result.namespace, None);
+        assert_eq!(result.name, Some("docker".to_string()));
+        assert_eq!(result.version, Some("1.0.0".to_string()));
+        assert_eq!(result.purl, Some("pkg:pypi/docker@1.0.0".to_string()));
+    }
+
+    #[test]
+    fn test_purl_blocks_conflicting_download_url_inference() {
+        let test_content = r#"
+purl: pkg:pypi/django@3.2.0
+download_url: https://raw.githubusercontent.com/docker/docker/ff2de8dace1ba1c1f5e8542790ef5cd564375934/image/spec/v1.1.md
+"#;
+        use std::io::Write;
+        let temp_dir = tempfile::tempdir().unwrap();
+        let file_path = temp_dir.path().join("purl-wins.ABOUT");
+        let mut file = std::fs::File::create(&file_path).unwrap();
+        file.write_all(test_content.as_bytes()).unwrap();
+
+        let result = AboutFileParser::extract_first_package(&file_path);
+
+        assert_eq!(result.package_type, Some(PackageType::Pypi));
+        assert_eq!(result.namespace, None);
+        assert_eq!(result.name, Some("django".to_string()));
+        assert_eq!(result.version, Some("3.2.0".to_string()));
+        assert_eq!(result.purl, Some("pkg:pypi/django@3.2.0".to_string()));
+    }
+
+    #[test]
     fn test_extra_data_preserves_notice_and_notes() {
         let path =
             PathBuf::from("testdata/copyright-golden/copyrights/misco2/regexhq/regexhq.ABOUT");

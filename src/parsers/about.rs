@@ -125,11 +125,29 @@ impl PackageParser for AboutFileParser {
                 .as_deref(),
         );
 
-        let package_type = about_type
+        let explicit_package_type = about_type
             .clone()
-            .or(purl_type)
-            .and_then(|s| s.parse::<crate::models::PackageType>().ok())
-            .or_else(|| inferred.as_ref().map(|identity| identity.package_type))
+            .and_then(|s| s.parse::<crate::models::PackageType>().ok());
+        let parsed_purl_type = purl_type
+            .clone()
+            .and_then(|s| s.parse::<crate::models::PackageType>().ok());
+        let has_parsed_purl_identity = parsed_purl_type.is_some()
+            || purl_namespace.is_some()
+            || purl_name.is_some()
+            || purl_version.is_some();
+        let inferred_identity = if explicit_package_type.is_none() && !has_parsed_purl_identity {
+            inferred
+        } else {
+            None
+        };
+
+        let package_type = explicit_package_type
+            .or(parsed_purl_type)
+            .or_else(|| {
+                inferred_identity
+                    .as_ref()
+                    .map(|identity| identity.package_type)
+            })
             .unwrap_or(Self::PACKAGE_TYPE);
 
         // Priority: about_namespace > purl_namespace
@@ -137,7 +155,7 @@ impl PackageParser for AboutFileParser {
             .clone()
             .or(purl_namespace.clone())
             .or_else(|| {
-                inferred
+                inferred_identity
                     .as_ref()
                     .and_then(|identity| identity.namespace.clone())
             })
@@ -148,7 +166,11 @@ impl PackageParser for AboutFileParser {
             .get(FIELD_NAME)
             .and_then(yaml_value_to_string)
             .or(purl_name.clone())
-            .or_else(|| inferred.as_ref().and_then(|identity| identity.name.clone()))
+            .or_else(|| {
+                inferred_identity
+                    .as_ref()
+                    .and_then(|identity| identity.name.clone())
+            })
             .map(truncate_field);
 
         let version = yaml
@@ -156,7 +178,7 @@ impl PackageParser for AboutFileParser {
             .and_then(yaml_value_to_string)
             .or(purl_version.clone())
             .or_else(|| {
-                inferred
+                inferred_identity
                     .as_ref()
                     .and_then(|identity| identity.version.clone())
             })
@@ -213,18 +235,22 @@ impl PackageParser for AboutFileParser {
                     .get(FIELD_NAME)
                     .and_then(yaml_value_to_string)
                     .or(purl_name.clone())
-                    .or_else(|| inferred.as_ref().and_then(|identity| identity.name.clone()));
+                    .or_else(|| {
+                        inferred_identity
+                            .as_ref()
+                            .and_then(|identity| identity.name.clone())
+                    });
                 let version = yaml
                     .get(FIELD_VERSION)
                     .and_then(yaml_value_to_string)
                     .or(purl_version.clone())
                     .or_else(|| {
-                        inferred
+                        inferred_identity
                             .as_ref()
                             .and_then(|identity| identity.version.clone())
                     });
                 let namespace = about_namespace.clone().or_else(|| {
-                    inferred
+                    inferred_identity
                         .as_ref()
                         .and_then(|identity| identity.namespace.clone())
                 });
