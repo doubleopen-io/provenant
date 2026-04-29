@@ -2530,9 +2530,9 @@ dependencies = [
 
 [[package]]
 name = "pdf_oxide"
-version = "0.3.39"
+version = "0.3.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62b84c4a44843caf63fc8cf1dd43d9d9f48e01c2861c2b9877a610a11f983978"
+checksum = "37f1c422fbf26fae471440d294f55e97106e619fa583b1d79eebb20abdb2e6e5"
 dependencies = [
  "aes",
  "base64",
@@ -2548,7 +2548,6 @@ dependencies = [
  "flate2",
  "image",
  "jpeg-decoder",
- "lazy_static",
  "libc",
  "log",
  "lzw",
@@ -2941,7 +2940,7 @@ dependencies = [
 
 [[package]]
 name = "provenant-cli"
-version = "0.0.32"
+version = "0.0.33"
 dependencies = [
  "anyhow",
  "ar",
