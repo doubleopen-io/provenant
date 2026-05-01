@@ -176,6 +176,12 @@ Core files:
 - `comparison/summary.tsv`
 - `comparison/samples/*.json`
 
+`comparison/summary.json` includes a neutral `comparison_status`. `review_required`
+means the reduced compare found deltas that still need reviewer or agent
+classification; it is not itself a regression verdict. The summary also exposes
+directional signal buckets under `comparison_signal_summary` plus top-level
+directional maps for the ScanCode-favored and Provenant-favored sides.
+
 Optional diagnostic logs when available:
 
 - `raw/scancode-stdout.txt`

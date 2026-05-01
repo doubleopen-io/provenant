@@ -62,14 +62,14 @@ Find a recent commit SHA or tag for `--repo-ref`. Do not use branch names — th
 
 After each compare-outputs run, inspect the artifacts under `.provenant/compare-runs/<run-id>/`:
 
-- `comparison/summary.json` — high-level delta counts and `comparison_status`
+- `comparison/summary.json` — high-level delta counts, `comparison_status`, and directional counts in `comparison_signal_summary`
 - `comparison/summary.tsv` — tab-separated per-file summary
 - `comparison/samples/*.json` — detailed per-field diff samples
 - `raw/provenant.json` and `raw/scancode.json` — full scanner outputs
 
 **Triage rules** (from the scorecard methodology):
 
-1. Treat `comparison_status: potential_regressions_detected` as a triage-required signal, not an automatic failure.
+1. Treat `comparison_status: review_required` as a triage-required signal, not an automatic failure.
 2. Treat any "more output" from either scanner as a claim to verify — not proof by itself.
 3. When scanners disagree, inspect the underlying file text to decide whether the extra or missing finding is justified.
 4. Apply the same rigor to license-expression and file-level license-detection deltas as to package, dependency, author, email, or URL deltas.
