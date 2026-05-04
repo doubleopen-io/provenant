@@ -28,7 +28,7 @@ Prefer release binaries? Download precompiled archives from [GitHub Releases](ht
 - Native workflows such as `--incremental` cache reuse and `--paths-file` rooted file lists for CI or changed-file scans
 - Option to [self-host an HTTP service](docs/SERVE_API_GUIDE.md) with warm process reuse, remote-friendly inputs, and async job handling for automation
 - Single self-contained binary for simpler installation and CI use
-- [ScanCode-compatible](docs/SCANCODE_COMPARISON.md) workflows and output formats, including ScanCode-style JSON, SPDX, CycloneDX, YAML, JSON Lines, HTML, and custom templates
+- ScanCode-compatible workflows and output formats, including ScanCode-style JSON, SPDX, CycloneDX, YAML, JSON Lines, HTML, and custom templates
 - [Security-first](docs/adr/0004-security-first-parsing.md) static parsing with explicit safeguards and compatibility-focused tradeoffs where needed
 - Built on upstream ScanCode license and rule data maintained by experts
 
@@ -42,8 +42,8 @@ Prefer release binaries? Download precompiled archives from [GitHub Releases](ht
 - Provenant is an independent Rust implementation inspired by ScanCode Toolkit.
 - It aims for strong compatibility with ScanCode workflows and output semantics where practical.
 - It continues to use the upstream ScanCode license and rule data.
+- ScanCode Toolkit remains the reference ecosystem Provenant studies for behavior, parity validation, and output semantics.
 - Provenant does not replace the value of upstream rule curation; it provides a Rust scanning engine around that expert-maintained knowledge base.
-- For a concise side-by-side overview, see [Provenant and ScanCode Toolkit](docs/SCANCODE_COMPARISON.md).
 - If you are moving an existing ScanCode power-user workflow, see [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md).
 
 ## Features
@@ -223,7 +223,6 @@ Output architecture and compatibility approach are documented in:
 - **[Serve API Guide](docs/SERVE_API_GUIDE.md)** - HTTP API usage, examples, and current service contract for `provenant serve`
 - **[Documentation Index](docs/DOCUMENTATION_INDEX.md)** - Best starting point for navigating the docs set
 - **[CLI Guide](docs/CLI_GUIDE.md)** - Common workflows and important flag combinations
-- **[Provenant and ScanCode Toolkit](docs/SCANCODE_COMPARISON.md)** - Relationship, trust model, and high-level comparison notes
 - **[Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md)** - Practical migration notes for ScanCode users, especially power-user workflows
 - **[Architecture](docs/ARCHITECTURE.md)** - System design, processing pipeline, and design decisions
 - **[Supported Formats](docs/SUPPORTED_FORMATS.md)** - Generated support matrix for package ecosystems and file formats

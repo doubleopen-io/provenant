@@ -8,7 +8,6 @@ This index helps you find the right documentation for your needs.
 - **[LIBRARY_GUIDE.md](LIBRARY_GUIDE.md)** - Programmatic embedding guidance for using Provenant from Rust
 - **[SERVE_API_GUIDE.md](SERVE_API_GUIDE.md)** - HTTP API usage guide for `provenant serve`
 - **[CLI_GUIDE.md](CLI_GUIDE.md)** - Command-line workflows and important flag combinations
-- **[SCANCODE_COMPARISON.md](SCANCODE_COMPARISON.md)** - Provenant's relationship to ScanCode Toolkit and high-level comparison notes
 - **[MIGRATING_FROM_SCANCODE.md](MIGRATING_FROM_SCANCODE.md)** - Practical migration notes for ScanCode users, especially power-user workflows
 - **[BENCHMARKS.md](BENCHMARKS.md)** - Maintained package-detection compare-run record, timing methodology, and Provenant-vs-ScanCode outcomes
 - **[SUPPORTED_FORMATS.md](SUPPORTED_FORMATS.md)** - Generated support matrix for package and package-adjacent detection surfaces
@@ -45,7 +44,6 @@ This index helps you find the right documentation for your needs.
 
 ```text
 docs/
-├── SCANCODE_COMPARISON.md             # Evergreen: Provenant vs. ScanCode positioning
 ├── BENCHMARKS.md                      # Evergreen: Benchmark methodology and recorded compare runs
 ├── CLI_GUIDE.md                       # Evergreen: User-facing CLI workflows
 ├── LIBRARY_GUIDE.md                   # Evergreen: User-facing Rust embedding guide
@@ -98,7 +96,7 @@ docs/
 → [LIBRARY_GUIDE.md](LIBRARY_GUIDE.md)
 
 **...understand Provenant's relationship to ScanCode Toolkit**
-→ [SCANCODE_COMPARISON.md](SCANCODE_COMPARISON.md)
+→ [README.md](../README.md) for high-level positioning, then [MIGRATING_FROM_SCANCODE.md](MIGRATING_FROM_SCANCODE.md) for practical differences
 
 **...migrate an existing ScanCode workflow to Provenant**
 → [MIGRATING_FROM_SCANCODE.md](MIGRATING_FROM_SCANCODE.md)
@@ -132,7 +130,6 @@ docs/
 - **CLI_GUIDE.md** - Updated as the public CLI workflows evolve
 - **LIBRARY_GUIDE.md** - Updated as the supported Rust embedding surface evolves
 - **SERVE_API_GUIDE.md** - Updated as the current HTTP API surface evolves
-- **SCANCODE_COMPARISON.md** - Updated as positioning, trust model, or comparison guidance evolves
 - **MIGRATING_FROM_SCANCODE.md** - Updated as the practical migration surface for ScanCode users evolves
 - **BENCHMARKS.md** - Updated as maintained benchmark examples and methodology evolve
 - **LICENSE_DETECTION_ARCHITECTURE.md** - Updated as the license-detection subsystem evolves

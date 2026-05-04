@@ -24,7 +24,7 @@ If you mostly want a ScanCode-aligned scan from a single binary, start with the 
 - `--from-json` continues to target ScanCode-style JSON inputs rather than a Provenant-only format.
 - Scanning now has an explicit `provenant scan ...` command form, while bare `provenant ...` scan invocations continue to work as a compatibility alias.
 
-For broader positioning and compatibility context, see [Provenant and ScanCode Toolkit](SCANCODE_COMPARISON.md).
+For broader project overview and trust-model context, see the [README](../README.md).
 
 ## The main migration differences
 
@@ -105,6 +105,11 @@ If you diff raw JSON semantically, this is one of the most important intentional
 When you enable `--copyright`, Provenant preserves file-level copyright text more faithfully in the existing `files[].copyrights[].copyright` field, including wording and punctuation that ScanCode commonly strips from its emitted value.
 
 This is intentional. Provenant treats source-faithful copyright text as the better default for compliance review and auditability, while still keeping normalized copyright semantics internally for grouping and tallies.
+
+In practice, the most visible differences are usually:
+
+- `Copyright 2020 The Go Authors. All rights reserved.` staying as-is instead of becoming `Copyright 2020 The Go Authors`
+- `Copyright 2017 The Kubernetes Authors.` staying with the trailing period instead of becoming `Copyright 2017 The Kubernetes Authors`
 
 If your downstream workflow needs the historic ScanCode-style rendered value in the same field, use:
 
@@ -195,6 +200,5 @@ If you are moving an existing ScanCode workflow to Provenant:
 ## Related docs
 
 - [CLI Guide](CLI_GUIDE.md)
-- [Provenant and ScanCode Toolkit](SCANCODE_COMPARISON.md)
 - [License Detection Architecture](LICENSE_DETECTION_ARCHITECTURE.md)
 - [Beyond-Parity Improvements](improvements/README.md)
