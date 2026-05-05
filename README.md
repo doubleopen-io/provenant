@@ -136,12 +136,6 @@ If you want to embed Provenant in a Rust application instead of invoking the CLI
 
 For the supported high-level Rust embedding path and dependency setup, see the [Library Guide](docs/LIBRARY_GUIDE.md).
 
-## Performance
-
-`Provenant` has maintained scan benchmarks against ScanCode on specific recorded targets. Across those same-host recorded runs, Provenant is frequently about an order of magnitude faster while also delivering broader package and dependency extraction, cleaner normalization, or other documented end-state improvements on many listed targets. See [Scan Benchmarks](docs/BENCHMARKS.md) for the exact targets, timings, machine context, and benchmark scope.
-
-These results apply only to those recorded benchmark runs; they are not a blanket claim about every scan mode, target, or environment. For implementation details, see [Architecture: Performance Characteristics](docs/ARCHITECTURE.md#performance-characteristics).
-
 ## Output Formats
 
 Implemented output formats include:
@@ -154,13 +148,6 @@ Implemented output formats include:
 - CycloneDX, JSON and XML
 - HTML report
 - Custom template rendering
-
-For the generated support matrix for package ecosystems and package-adjacent detection surfaces, see [Supported Formats](docs/SUPPORTED_FORMATS.md).
-
-Output architecture and compatibility approach are documented in:
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Testing Strategy](docs/TESTING_STRATEGY.md)
 
 ## Documentation
 
