@@ -83,6 +83,10 @@ crate::register_parser!(
 );
 ```
 
+This macro registers detection-surface metadata consumed by `src/parsers/metadata.rs` and the
+`generate-supported-formats` xtask. `docs/SUPPORTED_FORMATS.md` is generated from registered
+metadata, not from parser code alone.
+
 **Assembly and topology hints**:
 
 - Parsers stay file-local extractors: emit facts for the current file, not repository-wide assembly.
@@ -155,7 +159,7 @@ mod my_ecosystem_scan_test;
 pub use self::my_ecosystem::MyEcosystemParser;
 ```
 
-For directory-structured parsers (per [ADR 0009](../../docs/adr/0009-parser-submodule-structure.md)), test modules live inside the ecosystem's `mod.rs`:
+For directory-structured parsers (per [ADR 0009](../../docs/adr/0009-parser-submodule-structure.md)), test modules live inside the ecosystem's `mod.rs`. Follow the neighboring parser's naming convention; they are often `test.rs` / `scan_test.rs`, but some ecosystems use more specific module names such as `pom_test.rs`, `manifest_test.rs`, or `nuget_test.rs`:
 
 ```rust
 // src/parsers/mod.rs — only the directory module and public re-export
@@ -166,7 +170,7 @@ pub use self::my_ecosystem::MyEcosystemParser;
 ```rust
 // src/parsers/my_ecosystem/mod.rs — declares its own test modules
 #[cfg(test)]
-mod test;
+mod manifest_test;
 #[cfg(test)]
 mod scan_test;
 ```
@@ -194,11 +198,11 @@ The parser should appear in the output.
 - Declared-license behavior when the format has a trustworthy license field
 - Any parser-specific edge case the reference implementation already handles
 
-**Parser golden tests** — `src/parsers/<ecosystem>_golden_test.rs`:
+**Parser golden tests** — usually `src/parsers/<ecosystem>_golden_test.rs`, but for nested parser directories the golden may also live under the ecosystem subdirectory (for example `src/parsers/maven/golden_test.rs` or `src/parsers/nuget/nuget_golden_test.rs`):
 
 - Follow the feature-gating pattern used by neighboring golden tests.
 - Add representative fixtures under `testdata/<ecosystem>-golden/`.
-- Register in `src/parsers/golden_test.rs`:
+- Register in `src/parsers/golden_test.rs` using the same `#[path = "..."]` pattern as neighboring entries:
 
 ```rust
 #[path = "my_ecosystem_golden_test.rs"]
@@ -219,6 +223,8 @@ cargo run --manifest-path xtask/Cargo.toml --bin update-parser-golden -- <Parser
 - Required when parser correctness depends on scanner wiring, assembly, topology planning, or file/package linkage.
 - Effectively required when the parser emits: `for_packages` links, `datafile_paths`, dependency hoisting or manifest/lockfile interaction, `PackageData.file_references`.
 - See `src/parsers/cargo_scan_test.rs` for a minimal example.
+
+**Layer 4 integration coverage** — if you are adding a new ecosystem family or otherwise changing parser discovery/registration surface, add or update top-level integration coverage such as `tests/scanner_integration.rs` so the end-to-end scanner-visible surface stays exercised too.
 
 **Keep local verification scoped**:
 
@@ -254,7 +260,7 @@ Compare against the Python ScanCode reference (if it exists) or the authoritativ
 - Datasource IDs and assembly behavior
 - File-reference linkage when applicable
 
-For implemented parser families, the main end-to-end parity workflow is `compare-outputs`, not ad hoc manual scanner runs:
+For implemented parser families, the main end-to-end parity workflow is `compare-outputs`, not ad hoc manual scanner runs. Use the target mode that matches the work (`--repo-url` for repository-backed comparisons, `--target-path` for local targets), and use `--profile common-with-compiled` when compiled-binary package extraction is in scope:
 
 ```bash
 cargo run --manifest-path xtask/Cargo.toml --bin compare-outputs -- --repo-url https://github.com/org/repo.git --repo-ref <ref> --profile common
@@ -280,12 +286,12 @@ Before considering a parser complete, verify ALL of the following:
 - [ ] Parser is exported and registered in `src/parsers/mod.rs`
 - [ ] `register_parser!` metadata is present
 - [ ] Parser unit tests exist
-- [ ] Parser goldens exist (default expectation)
+- [ ] Parser goldens exist unless an explicitly scoped follow-up is already planned
 - [ ] Golden `.expected` files are committed alongside test fixtures
 - [ ] Parser-adjacent scan tests exist when downstream package or file-link behavior matters
 - [ ] Every new datasource is classified in `src/assembly/assemblers.rs`
 - [ ] File-reference ownership is wired when the parser emits `PackageData.file_references`
-- [ ] `docs/SUPPORTED_FORMATS.md` is regenerated and staged
+- [ ] `docs/SUPPORTED_FORMATS.md` is regenerated and staged from registered detection-surface metadata
 - [ ] Representative verification evidence is recorded in `docs/BENCHMARKS.md` when the target belongs in the maintained benchmark set
 - [ ] Behavior has been validated against the Python reference or authoritative spec
 
