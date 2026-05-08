@@ -9,7 +9,13 @@ Provenant is a Rust-based code scanner for licenses, copyrights, package metadat
 
 Across documented benchmark targets, Provenant is frequently about an order of magnitude faster than ScanCode while also surfacing broader package and dependency metadata, reducing result noise through documented parser and detection fixes, and supporting practical workflows such as incremental rescans, selected-file scans, and long-lived HTTP service use.
 
-Provenant reimplements the scanning engine in Rust while continuing to use the upstream [ScanCode Toolkit](https://github.com/aboutcode-org/scancode-toolkit) license and rule data. That expert-maintained dataset is foundational to Provenant's work; the goal is to preserve and build on it, not replace it.
+Provenant reimplements the scanning engine in Rust and builds on the upstream [ScanCode Toolkit](https://github.com/aboutcode-org/scancode-toolkit) license and rule data.
+
+> [!IMPORTANT]
+> **Project status:** production-usable, at parity with ScanCode where intended, and steadily improving.
+> Provenant is at parity with ScanCode for ScanCode-compatible workflows and output formats, aside from intentional non-goals such as ScanCode's plugin system. Ongoing work focuses on improving Provenant's performance, quality, and coverage across supported workflows.
+
+**Quick links:** [Quick Start](#quick-start) · [Choose a Workflow](#choose-a-workflow) · [Relationship to ScanCode](#relationship-to-scancode) · [Why Provenant?](#why-provenant) · [Installation](#installation) · [CLI Guide](docs/CLI_GUIDE.md) · [Benchmarks](docs/BENCHMARKS.md) · [Supported Formats](docs/SUPPORTED_FORMATS.md) · [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## Quick Start
 
@@ -19,6 +25,25 @@ provenant scan --json-pp - --license --package /path/to/repo
 ```
 
 Prefer release binaries? Download precompiled archives from [GitHub Releases](https://github.com/mstykow/provenant/releases).
+
+## Choose a Workflow
+
+| If you need to...                               | Start here                                                     | Next doc                                                           |
+| ----------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Run a one-off CLI scan                          | `provenant scan --json-pp - --license --package /path/to/repo` | [CLI Guide](docs/CLI_GUIDE.md)                                     |
+| Scan explicit changed files in CI or automation | Use `--paths-file` with one native scan root                   | [CLI Guide](docs/CLI_GUIDE.md)                                     |
+| Reuse a warm process through HTTP               | `provenant serve --help`                                       | [Serve API Guide](docs/SERVE_API_GUIDE.md)                         |
+| Embed Provenant in a Rust application           | Use the `provenant` library target from `provenant-cli`        | [Library Guide](docs/LIBRARY_GUIDE.md)                             |
+| Migrate an existing ScanCode workflow           | Start from Provenant's compatibility and migration notes       | [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) |
+
+## Relationship to ScanCode
+
+| Topic              | Provenant                                                                                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Implementation     | Independent Rust implementation for ScanCode-aligned workflows                                                                                               |
+| Compatibility goal | Strong compatibility with ScanCode workflows and output semantics where practical                                                                            |
+| Upstream data      | Uses the upstream ScanCode license and rule data as a foundational dataset                                                                                   |
+| Migration path     | For many ScanCode users, Provenant is a practical drop-in replacement; see the [migration guide](docs/MIGRATING_FROM_SCANCODE.md) for documented differences |
 
 ## Why Provenant?
 
@@ -31,18 +56,6 @@ Prefer release binaries? Download precompiled archives from [GitHub Releases](ht
 - ScanCode-compatible workflows and output formats, including ScanCode-style JSON, SPDX, CycloneDX, YAML, JSON Lines, HTML, and custom templates
 - [Security-first](docs/adr/0004-security-first-parsing.md) static parsing with explicit safeguards and compatibility-focused tradeoffs where needed
 - Built on upstream ScanCode license and rule data maintained by experts
-
-## Project Status
-
-> **Status:** active, usable, and under rapid development.
-> Provenant already supports many common production-style scanning workflows and ScanCode-compatible outputs, while compatibility-sensitive gaps and edge cases are still being closed.
-
-## Relationship to ScanCode
-
-- Provenant is an independent Rust implementation inspired by ScanCode Toolkit.
-- It aims for strong compatibility with ScanCode workflows and output semantics where practical.
-- It continues to use the upstream ScanCode license and rule data, and studies ScanCode Toolkit as the reference ecosystem for compatibility and parity work.
-- If you are moving an existing ScanCode power-user workflow, see [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md).
 
 ## Installation
 
@@ -93,7 +106,8 @@ Cargo places the compiled binary under `target/release/`.
 provenant scan --json-pp <FILE> [OPTIONS] <INPUT>...
 ```
 
-At least one output option is required.
+> [!NOTE]
+> Provenant requires at least one explicit output flag, such as `--json-pp -` or `--json scan-results.json`.
 
 For the command tree, run:
 
