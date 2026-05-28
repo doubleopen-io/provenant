@@ -1,6 +1,6 @@
 # Provenant
 
-[Quick Start](#quick-start) · [Choose a Workflow](#choose-a-workflow) · [Relationship to ScanCode](#relationship-to-scancode) · [Why Provenant?](#why-provenant) · [Installation](#installation) · [CLI Guide](docs/CLI_GUIDE.md) · [Benchmarks](docs/BENCHMARKS.md) · [Supported Formats](docs/SUPPORTED_FORMATS.md) · [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) · [Architecture](docs/ARCHITECTURE.md)
+[Why Provenant?](#why-provenant) · [Choose a Workflow](#choose-a-workflow) · [Install](#install) · [CLI Guide](docs/CLI_GUIDE.md) · [Benchmarks](docs/BENCHMARKS.md) · [Supported Formats](docs/SUPPORTED_FORMATS.md) · [Architecture](docs/ARCHITECTURE.md)
 
 [![Latest Release](https://img.shields.io/github/v/release/mstykow/provenant?display_name=tag)](https://github.com/mstykow/provenant/releases/latest)
 [![Crates.io](https://img.shields.io/crates/v/provenant-cli.svg)](https://crates.io/crates/provenant-cli)
@@ -28,25 +28,6 @@ provenant scan --json-pp - --license --package /path/to/repo
 
 Prefer release binaries? Download precompiled archives from [GitHub Releases](https://github.com/mstykow/provenant/releases).
 
-## Choose a Workflow
-
-| If you need to...                               | Start here                                                     | Next doc                                                           |
-| ----------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Run a one-off CLI scan                          | `provenant scan --json-pp - --license --package /path/to/repo` | [CLI Guide](docs/CLI_GUIDE.md)                                     |
-| Scan explicit changed files in CI or automation | Use `--paths-file` with one native scan root                   | [CLI Guide](docs/CLI_GUIDE.md)                                     |
-| Reuse a warm process through HTTP               | `provenant serve --help`                                       | [Serve API Guide](docs/SERVE_API_GUIDE.md)                         |
-| Embed Provenant in a Rust application           | Use the `provenant` library target from `provenant-cli`        | [Library Guide](docs/LIBRARY_GUIDE.md)                             |
-| Migrate an existing ScanCode workflow           | Start from Provenant's compatibility and migration notes       | [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) |
-
-## Relationship to ScanCode
-
-| Topic              | Provenant                                                                                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Implementation     | Rust implementation for ScanCode-compatible workflows                                                                                                                                       |
-| Compatibility goal | Strong compatibility with ScanCode workflows and output semantics where practical                                                                                                           |
-| Upstream data      | Uses the upstream ScanCode license and rule data as a foundational dataset                                                                                                                  |
-| Migration path     | For teams evaluating ScanCode-compatible workflows, Provenant may be a practical migration candidate; see the [migration guide](docs/MIGRATING_FROM_SCANCODE.md) for documented differences |
-
 ## Why Provenant?
 
 - [Benchmark-backed](docs/BENCHMARKS.md) scan speedups that are frequently about an order of magnitude faster than ScanCode on recorded same-host runs
@@ -59,7 +40,26 @@ Prefer release binaries? Download precompiled archives from [GitHub Releases](ht
 - [Security-first](docs/adr/0004-security-first-parsing.md) static parsing with explicit safeguards and compatibility-focused tradeoffs where needed
 - Built on upstream ScanCode license and rule data maintained by experts
 
-## Installation
+## Choose a Workflow
+
+| If you need to...                                     | Start here                                                         | Next doc                                                                                   |
+| ----------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Run a one-off CLI scan                                | `provenant scan --json-pp - --license --package /path/to/repo`     | [CLI Guide](docs/CLI_GUIDE.md)                                                             |
+| Scan explicit changed files in CI or automation       | Use `--paths-file` with one native scan root                       | [CLI Guide](docs/CLI_GUIDE.md)                                                             |
+| Reuse a warm process through HTTP                     | `provenant serve --help`                                           | [Serve API Guide](docs/SERVE_API_GUIDE.md)                                                 |
+| Embed Provenant in a Rust application                 | Use the `provenant` library target from `provenant-cli`            | [Library Guide](docs/LIBRARY_GUIDE.md)                                                     |
+| Evaluate Provenant with an existing ScanCode workflow | Start from Provenant's compatibility and workflow-difference notes | [Evaluating Provenant with ScanCode workflows](docs/EVALUATING_WITH_SCANCODE_WORKFLOWS.md) |
+
+## Relationship to ScanCode
+
+| Topic              | Provenant                                                                                                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation     | Rust implementation for ScanCode-compatible workflows                                                                                                                                                             |
+| Compatibility goal | Strong compatibility with ScanCode workflows and output semantics where practical                                                                                                                                 |
+| Upstream data      | Uses the upstream ScanCode license and rule data as a foundational dataset                                                                                                                                        |
+| Evaluation path    | For teams evaluating Provenant alongside existing ScanCode-compatible workflows, see the [ScanCode workflow guide](docs/EVALUATING_WITH_SCANCODE_WORKFLOWS.md) for compatibility notes and documented differences |
+
+## Install
 
 ### From Crates.io
 
@@ -171,7 +171,7 @@ Implemented output formats include:
 - **[Serve API Guide](docs/SERVE_API_GUIDE.md)** - HTTP API usage, examples, and current service contract for `provenant serve`
 - **[Documentation Index](docs/DOCUMENTATION_INDEX.md)** - Best starting point for navigating the docs set
 - **[CLI Guide](docs/CLI_GUIDE.md)** - Common workflows and important flag combinations
-- **[Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md)** - Practical migration notes for ScanCode users, especially power-user workflows
+- **[Evaluating Provenant with ScanCode workflows](docs/EVALUATING_WITH_SCANCODE_WORKFLOWS.md)** - Compatibility notes and workflow differences for ScanCode users evaluating Provenant
 - **[Architecture](docs/ARCHITECTURE.md)** - System design, processing pipeline, and design decisions
 - **[Supported Formats](docs/SUPPORTED_FORMATS.md)** - Generated support matrix for package ecosystems and package-adjacent detection surfaces
 - **[How to Add a Parser](docs/HOW_TO_ADD_A_PARSER.md)** - Step-by-step guide for adding new parsers

@@ -1,12 +1,12 @@
-# Migrating from ScanCode Toolkit
+# Evaluating Provenant with ScanCode Workflows
 
-This guide is for people who already know ScanCode Toolkit and want to understand what, if anything, changes when they move a workflow to Provenant.
+This guide is for people who already know ScanCode Toolkit and want to understand what, if anything, changes when they try Provenant on a similar workflow.
 
 For many common scan-and-consume workflows, the answer is: **not much**.
 
-Provenant targets strong CLI and output compatibility with ScanCode where practical. If you mostly run scans and consume the usual output formats, you can often start with the same broad habits and adjust only a few power-user workflows.
+Provenant targets strong CLI and output compatibility with ScanCode where practical. If you mostly run scans and consume the usual output formats, you can often try Provenant with the same broad habits and adjust only a few power-user workflows.
 
-## Who needs this guide?
+## Who should read this guide?
 
 You will probably care about this document if you:
 
@@ -26,7 +26,7 @@ If you mostly want a ScanCode-compatible scan from a single binary, start with t
 
 For broader project overview and trust-model context, see the [README](../README.md).
 
-## The main migration differences
+## The main workflow differences to review
 
 ### 1. Custom license data is now an export/edit/reuse workflow
 
@@ -144,18 +144,18 @@ That means Provenant now prefers:
 - `--include '*.rs' --include 'src/**/*.toml'` when you mean pattern filtering
 - `--paths-file changed-files.txt /path/to/repo` when you already know the exact rooted file or directory list
 
-This is a workflow-level difference worth knowing when you migrate existing ScanCode habits or shell wrappers.
+This is a workflow-level difference worth knowing if you are testing Provenant against existing ScanCode habits or shell wrappers.
 
 See also:
 
 - [CLI Guide](CLI_GUIDE.md)
 - [CLI Workflows](improvements/cli-workflows.md)
 
-## Practical migration advice
+## Practical evaluation advice
 
 ### Compare one representative target first
 
-If you are trying to build confidence in Provenant during a migration, the most useful workflow is:
+If you are trying to evaluate Provenant against an existing ScanCode workflow, the most useful workflow is:
 
 1. run ScanCode on one representative codebase and save the JSON output
 2. run Provenant on that same codebase and save the JSON output
