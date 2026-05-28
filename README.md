@@ -1,5 +1,7 @@
 # Provenant
 
+[Quick Start](#quick-start) · [Choose a Workflow](#choose-a-workflow) · [Relationship to ScanCode](#relationship-to-scancode) · [Why Provenant?](#why-provenant) · [Installation](#installation) · [CLI Guide](docs/CLI_GUIDE.md) · [Benchmarks](docs/BENCHMARKS.md) · [Supported Formats](docs/SUPPORTED_FORMATS.md) · [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) · [Architecture](docs/ARCHITECTURE.md)
+
 [![Latest Release](https://img.shields.io/github/v/release/mstykow/provenant?display_name=tag)](https://github.com/mstykow/provenant/releases/latest)
 [![Crates.io](https://img.shields.io/crates/v/provenant-cli.svg)](https://crates.io/crates/provenant-cli)
 [![CI](https://github.com/mstykow/provenant/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/mstykow/provenant/actions/workflows/check.yml)
@@ -16,8 +18,6 @@ Provenant reimplements the scanning engine in Rust and builds on the upstream [S
 > [!IMPORTANT]
 > **Project status:** production-usable, compatibility-focused, and steadily improving.
 > Provenant targets parity for documented ScanCode-compatible workflows and output formats, aside from intentional non-goals such as ScanCode's plugin system. Ongoing work focuses on improving Provenant's performance, quality, and coverage across supported workflows.
-
-**Quick links:** [Quick Start](#quick-start) · [Choose a Workflow](#choose-a-workflow) · [Relationship to ScanCode](#relationship-to-scancode) · [Why Provenant?](#why-provenant) · [Installation](#installation) · [CLI Guide](docs/CLI_GUIDE.md) · [Benchmarks](docs/BENCHMARKS.md) · [Supported Formats](docs/SUPPORTED_FORMATS.md) · [Migrating from ScanCode Toolkit](docs/MIGRATING_FROM_SCANCODE.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## Quick Start
 
