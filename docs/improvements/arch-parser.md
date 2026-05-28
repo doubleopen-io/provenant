@@ -8,7 +8,7 @@ Rust now parses the main Arch Linux metadata surfaces that were previously missi
 - legacy `.AURINFO`
 - standalone `.PKGINFO`
 
-This goes beyond the current Python reference state, where upstream work is focused on `.SRCINFO` only and does not yet cover Arch `.PKGINFO` or legacy `.AURINFO` handling.
+This intentionally differs from and improves on the current Python reference state, where upstream work is focused on `.SRCINFO` only and does not yet cover Arch `.PKGINFO` or legacy `.AURINFO` handling.
 
 ## Python Reference Status
 

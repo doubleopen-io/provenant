@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the released Python ScanCode Cargo handling in several concrete ways:
+Rust now intentionally differs from or improves on released Python ScanCode Cargo handling in several concrete ways:
 
 1. assigns ordinary crate files to their Cargo package instead of limiting ownership to `Cargo.toml` and `Cargo.lock`
 2. assigns workspace member ownership for non-manifest files such as `LICENSE` and `README.md`

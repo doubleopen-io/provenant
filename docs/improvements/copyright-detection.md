@@ -1,4 +1,4 @@
-# Copyright Detection: Beyond-Parity Improvements
+# Copyright Detection: Intentional Differences and Improvements
 
 ## Summary
 

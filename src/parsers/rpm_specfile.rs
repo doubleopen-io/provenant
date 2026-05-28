@@ -4,7 +4,7 @@
 //! Parser for RPM .spec files.
 //!
 //! Extracts package metadata from RPM specfiles, which define how RPM packages
-//! are built. This is a beyond-parity implementation - the Python version is
+//! are built. This is an intentional improvement over parity - the Python version is
 //! a complete stub with "TODO: implement me!!" comments.
 //!
 //! # Supported Formats

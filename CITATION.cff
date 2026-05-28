@@ -9,7 +9,7 @@ url: "https://github.com/mstykow/provenant"
 authors:
   - name: "The Provenant contributors"
 abstract: >-
-  Independent Rust scanner for ScanCode-compatible workflows, licenses,
+  Rust scanner for ScanCode-compatible workflows, licenses,
   package metadata, SBOMs, and provenance data.
 keywords:
   - scancode

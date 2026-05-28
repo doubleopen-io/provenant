@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode Composer handling in several concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode Composer handling in several concrete ways:
 
 1. supports alternate Composer manifest/lockfile names such as `symfony.composer.json`, `composer.symfony.json`, and analogous lockfile names
 2. assigns ordinary files under Composer package roots to the correct package, including nested Composer packages

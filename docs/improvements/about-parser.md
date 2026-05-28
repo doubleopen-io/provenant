@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode ABOUT handling in four concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode ABOUT handling in four concrete ways:
 
 1. derives real ecosystem PURLs from `download_url` metadata when an ABOUT file lacks an explicit PURL
 2. avoids emitting invalid `pkg:about/...` PURLs when the file only describes another ecosystem package

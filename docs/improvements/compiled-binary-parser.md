@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the default Python ScanCode compiled-binary handling in several concrete ways:
+Rust now intentionally differs from or improves on default Python ScanCode compiled-binary handling in several concrete ways:
 
 1. ships Go build-info and Rust cargo-auditable compiled-binary extraction in core rather than relying on optional external inspector plugins
 2. emits native `PackageData` rows for supported compiled binaries with first-class `GoBinary` and `RustBinary` datasource IDs

@@ -1,11 +1,11 @@
-# Beyond-Parity Improvements
+# Intentional Differences and Improvements
 
-This directory documents stable, user-visible ways Provenant goes beyond the Python ScanCode Toolkit reference implementation.
+This directory documents stable, user-visible differences and improvements between Provenant and the Python ScanCode Toolkit reference implementation.
 It includes parser improvements and text-detection subsystem improvements.
 
 ## Philosophy
 
-This directory records cases where Provenant intentionally goes beyond the Python reference implementation. We:
+This directory records cases where Provenant intentionally differs from or improves on the Python reference implementation. We:
 
 - Fix bugs present in the Python implementation
 - Implement features marked as TODO in Python

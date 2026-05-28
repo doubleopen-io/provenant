@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the released Python ScanCode Go handling in several concrete ways:
+Rust now intentionally differs from or improves on released Python ScanCode Go handling in several concrete ways:
 
 1. preserves fallback datasource IDs across Go parser error paths
 2. preserves `replace`, `retract`, and `toolchain` directive fidelity across real parser inputs

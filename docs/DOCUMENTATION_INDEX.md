@@ -113,7 +113,7 @@ docs/
 **...understand a design decision**
 → [adr/README.md](adr/README.md)
 
-**...see where Provenant intentionally goes beyond the Python reference**
+**...see where Provenant intentionally differs from or improves on the Python reference**
 → [improvements/README.md](improvements/README.md)
 
 **...track implementation quality and behavior**
@@ -138,7 +138,7 @@ docs/
 - **TESTING_STRATEGY.md** - Updated as testing approach evolves
 - **SUPPORTED_FORMATS.md** - Auto-generated and CI-checked for drift
 - **adr/README.md** - ADR index; accepted ADRs record design decisions and may receive limited maintenance notes to prevent broken or misleading references
-- **improvements/README.md** - Landing page for beyond-parity improvement documents
+- **improvements/README.md** - Landing page for intentional differences and improvements documents
 
 ### Canonical Ownership Rules
 
@@ -157,11 +157,11 @@ When adding documentation:
 
 1. **Evergreen docs** go in `docs/` root or subdirectories (`adr/`, `improvements/`)
 2. **ADRs** document accepted design decisions - create new ADRs for substantive decision changes, but allow narrowly scoped maintenance notes or link fixes that prevent stale guidance
-3. **Beyond-parity features** get documented in `improvements/` with examples
+3. **Intentional differences and improvements** get documented in `improvements/` with examples
 4. **Auto-generated docs** (like `SUPPORTED_FORMATS.md`) should not be edited manually
 
 ## Maintenance
 
 - **SUPPORTED_FORMATS.md**: Regenerate with `cargo run --manifest-path xtask/Cargo.toml --bin generate-supported-formats` and keep it passing `-- --check` in CI
 - **ADRs**: Add new ADRs for significant design decisions
-- **Improvements**: Document beyond-parity features as they're implemented
+- **Improvements**: Document intentional differences and improvements as they're implemented

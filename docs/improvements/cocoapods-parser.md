@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode CocoaPods handling in two concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode CocoaPods handling in two concrete ways:
 
 1. refines dependency scope handling so runtime/development semantics are more honest across `.podspec`, `.podspec.json`, `Podfile`, and `Podfile.lock`
 2. avoids duplicate package explosion for `RxDataSources.podspec`

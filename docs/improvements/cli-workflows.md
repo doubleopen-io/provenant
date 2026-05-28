@@ -10,7 +10,7 @@
 - Pull-request and changed-file workflows are awkward when tooling must run from a fixed location instead of the repository root.
 - There is still no settled first-class rooted path-list input that lets users say “scan this one tree, but only these listed files/directories” without shell glue.
 
-This document is the landing zone for stable, user-visible CLI workflow improvements that go beyond the Python reference implementation.
+This document is the landing zone for stable, user-visible CLI workflow differences and improvements relative to the Python reference implementation.
 
 ## Improvement 1: Rooted selected-path scanning
 
@@ -48,4 +48,4 @@ This document is the landing zone for stable, user-visible CLI workflow improvem
 
 - Repeated local and CI reruns can skip unchanged work instead of rescanning everything from scratch.
 - Cache-root controls make the workflow usable in containerized and shared-runner environments.
-- Users get a beyond-parity repeated-scan workflow without changing the output model or scan semantics.
+- Users get an intentional improvement in repeated-scan workflows without changing the output model or scan semantics.

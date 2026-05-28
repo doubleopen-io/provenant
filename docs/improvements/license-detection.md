@@ -1,4 +1,4 @@
-# License Detection: Beyond-Parity Improvements
+# License Detection: Intentional Differences and Improvements
 
 ## Type
 

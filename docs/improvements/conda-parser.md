@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode Conda handling in several concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode Conda handling in several concrete ways:
 
 1. assembles `conda-meta/*.json` installed-package metadata together with sibling recipe `meta.yaml` data so installed files are assigned back to the Conda package
 2. resolves channel-prefix ambiguity by keeping symbolic channel names as PURL namespace while preserving URL-like channel prefixes separately as `channel_url`

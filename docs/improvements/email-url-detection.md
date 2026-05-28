@@ -21,5 +21,5 @@
 ## Impact
 
 - Better correctness and parity confidence for email/URL extraction.
-- Additional beyond-parity detections from EXIF/XMP image metadata on supported image formats and from native metadata embedded in supported font containers (`ttf`, `otf`, `woff`, `woff2`, `eot`, `ttc`, `otc`).
+- Additional intentional detections and improvements from EXIF/XMP image metadata on supported image formats and from native metadata embedded in supported font containers (`ttf`, `otf`, `woff`, `woff2`, `eot`, `ttc`, `otc`).
 - Safer handling of sensitive URL credential data.

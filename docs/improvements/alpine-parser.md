@@ -1,4 +1,4 @@
-# Alpine Parser: Beyond-Parity Improvements
+# Alpine Parser: Intentional Differences and Improvements
 
 ## Summary
 

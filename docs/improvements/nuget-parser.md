@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the released Python ScanCode NuGet support in six concrete ways:
+Rust now intentionally differs from or improves on released Python ScanCode NuGet support in six concrete ways:
 
 1. parses additional NuGet and Visual Studio manifests (legacy `project.json`, `project.lock.json`, and PackageReference project files)
 2. parses `.deps.json` runtime dependency graphs from built .NET outputs

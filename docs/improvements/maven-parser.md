@@ -1,4 +1,4 @@
-# Maven Parser: Beyond-Parity Improvements
+# Maven Parser: Intentional Differences and Improvements
 
 ## Summary
 

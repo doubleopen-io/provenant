@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode Gradle handling in several concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode Gradle handling in several concrete ways:
 
 1. classifies `compileOnly`-style Gradle scopes as non-runtime instead of treating everything except `test*` as runtime
 2. extracts Gradle POM license metadata into package license fields so CycloneDX output can carry component license expressions

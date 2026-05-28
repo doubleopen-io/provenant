@@ -1,8 +1,8 @@
-# Debian Parser: Beyond-Parity Improvements
+# Debian Parser: Intentional Differences and Improvements
 
 ## Summary
 
-The Debian parser in Provenant goes beyond the Python reference in four main ways:
+The Debian parser in Provenant intentionally differs from or improves on the Python reference in four main ways:
 
 - **✨ New Feature**: direct `.deb` archive introspection from `control.tar.*`
 - **🔍 Enhanced Extraction**: package-matching copyright metadata can also be recovered from `data.tar.*`

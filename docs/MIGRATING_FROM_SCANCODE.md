@@ -119,7 +119,7 @@ provenant scan --json-pp scan.json --copyright --compat-mode scancode /path/to/p
 
 ### 6. Parser behavior can be more capable than ScanCode on some documented surfaces
 
-Provenant includes many documented parser fixes and beyond-parity improvements, for example in:
+Provenant includes many documented parser fixes and intentional differences and improvements, for example in:
 
 - NuGet
 - npm/Yarn
@@ -129,7 +129,7 @@ Provenant includes many documented parser fixes and beyond-parity improvements, 
 
 These are documented improvements on specific surfaces, not random incompatibilities.
 
-See [Beyond-Parity Improvements](improvements/README.md) for the full index.
+See [Intentional Differences and Improvements](improvements/README.md) for the full index.
 
 ### 7. Path selection is split more explicitly between patterns and exact rooted paths
 
@@ -201,4 +201,4 @@ If you are moving an existing ScanCode workflow to Provenant:
 
 - [CLI Guide](CLI_GUIDE.md)
 - [License Detection Architecture](LICENSE_DETECTION_ARCHITECTURE.md)
-- [Beyond-Parity Improvements](improvements/README.md)
+- [Intentional Differences and Improvements](improvements/README.md)

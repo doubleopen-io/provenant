@@ -3,7 +3,7 @@ Provenant Notices
 
 Copyright (c) 2026 Provenant contributors.
 
-Provenant is an independent Rust implementation for ScanCode-compatible workflows.
+Provenant is a Rust implementation for ScanCode-compatible workflows.
 It is not affiliated with, endorsed by, or sponsored by ScanCode Toolkit,
 AboutCode, or nexB Inc.
 

@@ -26,7 +26,7 @@ Before making non-trivial changes, read the document that owns the surface you a
 
 ## Project Context
 
-Provenant is an independent Rust implementation for ScanCode-aligned workflows. The goal is strong compatibility users can trust, while using Rust to improve correctness, safety, performance, and maintainability.
+Provenant is a Rust implementation for ScanCode-aligned workflows. The goal is strong compatibility users can trust, while using Rust to improve correctness, safety, performance, and maintainability.
 
 Routine scans use the embedded license index. The `reference/scancode-toolkit/` submodule is mainly needed for parity research, embedded-license-data maintenance, and maintainer workflows that depend on upstream material.
 

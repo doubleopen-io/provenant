@@ -1,4 +1,4 @@
-# Dart Parser: Beyond-Parity Improvements
+# Dart Parser: Intentional Differences and Improvements
 
 ## Summary
 

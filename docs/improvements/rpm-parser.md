@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the released Python ScanCode RPM handling in several concrete ways:
+Rust now intentionally differs from or improves on released Python ScanCode RPM handling in several concrete ways:
 
 1. keeps full EVR identity in installed RPM database parsing instead of dropping the `Release` portion
 2. recognizes hash-named source RPM files by RPM magic bytes, not only by filename extension

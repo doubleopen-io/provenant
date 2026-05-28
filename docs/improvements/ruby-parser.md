@@ -2,7 +2,7 @@
 
 ## Summary
 
-Rust now goes beyond the current Python ScanCode Ruby handling in several concrete ways:
+Rust now intentionally differs from or improves on current Python ScanCode Ruby handling in several concrete ways:
 
 1. resolves gemspec constants from required local Ruby files instead of leaving all external constants unresolved
 2. preserves Bundler `Gemfile` and `Gemfile.lock` source metadata at parser level
